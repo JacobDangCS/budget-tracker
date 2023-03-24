@@ -3,6 +3,7 @@ import { Header } from './components/Header';
 import { Balance } from './components/Balance';
 import { IncomeBudget } from './components/IncomeBudget';
 import { TransList } from './components/TransList';
+import { AddTrans } from './components/AddTrans';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Balance />
         <IncomeBudget />
         <TransList />
+        <AddTrans />
       </div>
     </div>
   );
