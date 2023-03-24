@@ -1,13 +1,15 @@
 import './App.css';
 import { Header } from './components/Header';
-import { Balance } from './components/Balance'
+import { Balance } from './components/Balance';
+import { IncomeBudget } from './components/IncomeBudget';
 
 function App() {
   return (
     <div>
-      <Header/>
+      <Header />
       <div className="container">
-      <Balance/>
+        <Balance />
+        <IncomeBudget />
       </div>
     </div>
   );
