@@ -5,9 +5,11 @@ import { IncomeBudget } from './components/IncomeBudget';
 import { TransList } from './components/TransList';
 import { AddTrans } from './components/AddTrans';
 
+import {GlobalProvider} from './context/GlobalState';
+
 function App() {
   return (
-    <div>
+    <GlobalProvider>
       <Header />
       <div className="container">
         <Balance />
@@ -15,7 +17,7 @@ function App() {
         <TransList />
         <AddTrans />
       </div>
-    </div>
+    </GlobalProvider>
   );
 }
 
