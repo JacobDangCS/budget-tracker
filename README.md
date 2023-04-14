@@ -15,6 +15,9 @@ To run locally, clone repository and type 'npm start' in command line
 ## API
 - Utilizes Context API
 
+## UML
+![FrontEnd UML](assets/frtendUML.png)
+
 ## Credits
 Credit to bradtraversy for concept
 
