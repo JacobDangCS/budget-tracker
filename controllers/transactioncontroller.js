@@ -4,6 +4,8 @@ const Transaction = require('../models/Transactions');
 // route: GET /api/v1/transactions
 
 exports.getTransactions = async (req, res, next) => {
+    console.log('Inside GET Function');
+
     try {
         const transactions = await Transaction.find();
 
@@ -37,7 +39,7 @@ exports.addTransactions = async (req, res, next) => {
         });
 
     } catch (error) {
-        if(error.name === 'ValidationError'){
+        if (error.name === 'ValidationError') {
             const messages = Object.values(error.errors).map(val => val.message);
 
             return res.status(400).json({
@@ -60,5 +62,29 @@ exports.addTransactions = async (req, res, next) => {
 // route: DELETE /api/v1/transactions/:id
 
 exports.deleteTransactions = async (req, res, next) => {
-    res.send('DELETE transactions');
+    console.log('Inside Delete Function');
+    let id = req.params._id;
+    try {
+        const transactions = await Transaction.findById(id);
+
+        if (!transactions) {
+            return res.status(404).json({
+                success: false,
+                error: 'No transaction found'
+            });
+        }
+
+        await transactions.remove();
+
+        return res.status(200).json({
+            success: true,
+            data: {}
+        });
+
+    } catch (error) {
+        return res.status(500).json({
+            success: false,
+            error: 'Server Error'
+        });
+    }
 }
