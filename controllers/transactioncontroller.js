@@ -4,10 +4,9 @@ const Transaction = require('../models/Transactions');
 // route: GET /api/v1/transactions
 
 exports.getTransactions = async (req, res, next) => {
-    console.log('Inside GET Function');
-
     try {
         const transactions = await Transaction.find();
+        console.log('PROOF OF LIFE');
 
         return res.status(200).json({
             success: true,
@@ -54,18 +53,14 @@ exports.addTransactions = async (req, res, next) => {
             });
         }
     }
-
-
 }
 
 // Delete transactions
 // route: DELETE /api/v1/transactions/:id
 
 exports.deleteTransactions = async (req, res, next) => {
-    console.log('Inside Delete Function');
-    let id = req.params._id;
     try {
-        const transactions = await Transaction.findById(id);
+        const transactions = await Transaction.findByIdAndDelete(req.params.id);
 
         if (!transactions) {
             return res.status(404).json({
@@ -73,9 +68,7 @@ exports.deleteTransactions = async (req, res, next) => {
                 error: 'No transaction found'
             });
         }
-
-        await transactions.remove();
-
+        
         return res.status(200).json({
             success: true,
             data: {}
