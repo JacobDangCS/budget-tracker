@@ -6,7 +6,6 @@ const Transaction = require('../models/Transactions');
 exports.getTransactions = async (req, res, next) => {
     try {
         const transactions = await Transaction.find();
-        console.log('PROOF OF LIFE');
 
         return res.status(200).json({
             success: true,
