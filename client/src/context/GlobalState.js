@@ -1,4 +1,4 @@
-import React, {createContext, useReducer} from "react";
+import React, {createContext, useReducer, useEffect} from "react";
 import AppReducer from './AppReducer';
 import axios from 'axios';
 
@@ -24,7 +24,7 @@ export const GlobalProvider = ({children}) => {
         } catch (error) {
             dispatch({
                 type: 'TRANSACTION_ERROR',
-                payload: error.response.data.error
+                payload: error.res.data.error
             });
         }
     }
@@ -34,14 +34,14 @@ export const GlobalProvider = ({children}) => {
             const res = await axios.get('/api/v1/transactions');
 
             dispatch({
-                type: 'GET_TRANSACTIONS',
+                type: 'GET_TRANSACTION',
                 payload: res.data.data
             });
 
         } catch (error) {
             dispatch({
                 type: 'TRANSACTION_ERROR',
-                payload: error.response.data.error
+                payload: error.res.data.error
             });
         }
     }
@@ -62,7 +62,7 @@ export const GlobalProvider = ({children}) => {
         } catch (error) {
             dispatch({
                 type: 'TRANSACTION_ERROR',
-                payload: error.response.data.error
+                payload: error.res.data.error
             });
         }
     }
@@ -73,7 +73,7 @@ export const GlobalProvider = ({children}) => {
         loading: state.loading,
         getTransactions,
         deleteTransaction,
-        addTransaction
+        addTransaction,
         }}>
         {children}
     </GlobalContext.Provider>)
