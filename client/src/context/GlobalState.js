@@ -15,7 +15,7 @@ export const GlobalProvider = ({children}) => {
 
     async function deleteTransaction(id){
         try {
-            await axios.delete(`/api/v1/transactions/${id}`);
+            await axios.delete(`https://api.render.com/deploy/srv-chcmjs67avjcvo3biubg?key=Z_dSXwKjT4U/api/v1/transactions/${id}`);
             dispatch({
                 type: 'DELETE_TRANSACTION',
                 payload: id
@@ -31,7 +31,7 @@ export const GlobalProvider = ({children}) => {
 
     async function getTransactions() {
         try {
-            const res = await axios.get('/api/v1/transactions');
+            const res = await axios.get('https://api.render.com/deploy/srv-chcmjs67avjcvo3biubg?key=Z_dSXwKjT4U/api/v1/transactions');
 
             dispatch({
                 type: 'GET_TRANSACTION',
