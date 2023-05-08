@@ -54,7 +54,7 @@ export const GlobalProvider = ({children}) => {
         }
 
         try {
-            const res = await axios.post('/api/v1/transactions', transaction, config);
+            const res = await axios.post('https://api.render.com/deploy/srv-chcmjs67avjcvo3biubg?key=Z_dSXwKjT4U/api/v1/transactions', transaction, config);
             dispatch({
                 type: 'ADD_TRANSACTION',
                 payload: res.data.data
