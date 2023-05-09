@@ -7,16 +7,15 @@ A full stack application that tracks all inputted expenses and income. Utilizes 
 To run locally, clone repository and type 'npm start' in command line
 
 ## Project Structure
-- Tracks any given input for income/expense
-- Calculates current balance based on inputs
-- History Component keeps user up to date with previous inputs
-- History can be deleted
+- Implements full CRUD functionality
+- Includes dynamic API Calls
+- Schema Model utilized for transactions
 
 ## API
 - Utilizes Context API
 
 ## UML
-![FrontEnd UML](assets/frtendUML.png)
+![BackEnd UML](assets/backendUML.png)
 
 ## Credits
 Credit to bradtraversy for concept
