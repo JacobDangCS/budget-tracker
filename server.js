@@ -26,6 +26,8 @@ if(process.env.NODE_ENV === 'production'){
     app.use(
         cors({
             origin: ["https://jd-budget-tracker-frontend.onrender.com/"],
+            headers: ["Content-Type"],
+            credentials: true,
         })
     )
 }
